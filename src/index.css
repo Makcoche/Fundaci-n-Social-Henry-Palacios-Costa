@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    font-family: 'Outfit', sans-serif;
+    scroll-behavior: smooth;
+  }
+}
+
+.font-script {
+  font-family: 'Caveat', cursive;
+}
+
+/* Custom brand colors and accents */
+:root {
+  --color-foundation-red: #CE1126;
+  --color-foundation-red-dark: #A50B1B;
+  --color-foundation-red-deep: #7D0613;
+  --color-foundation-red-light: #FEE2E2;
+}
+
+/* Smooth custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #ce1126;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a50b1b;
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Fundación Social Henry Palacios Costa",
+  "description": "Sitio oficial de la Fundación Social Henry Palacios \"Costa\". Diciendo y Haciendo por Apartadó y la región de Urabá: deporte, cultura, educación, emprendimiento y desarrollo social.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

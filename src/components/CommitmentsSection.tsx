@@ -41,16 +41,16 @@ export const CommitmentsSection: React.FC<CommitmentsSectionProps> = ({ onOpenPr
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-100 text-[#CE1126] text-xs font-black uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-100 text-[rgb(220,20,35)] text-xs font-black uppercase tracking-wider mb-3">
             <span>Ejes Programáticos</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-[#CE1126]"></span>
-            <span>20 Años de Transformación</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-[rgb(220,20,35)]"></span>
+            <span>Gestión Social Comunitaria</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-neutral-900 tracking-tight">
-            Seis Compromisos para Transformar a Apartadó
+            Seis Ejes de Compromiso para Transformar a Apartadó
           </h2>
           <p className="mt-4 text-base sm:text-lg text-neutral-600 leading-relaxed">
-            Propuestas estructuradas con visión de futuro, transparencia administrativa y resultados tangibles 
+            Iniciativas sociales estructuradas con visión comunitaria, transparencia absoluta y resultados verificables 
             para cada corregimiento, barrio, vereda y sector productivo de Urabá.
           </p>
         </div>
@@ -68,7 +68,7 @@ export const CommitmentsSection: React.FC<CommitmentsSectionProps> = ({ onOpenPr
                   onClick={() => setSelectedCommitment(c)}
                   className={`cursor-pointer p-4 sm:p-5 rounded-2xl border transition-all flex items-center justify-between gap-4 group ${
                     isSelected
-                      ? 'bg-white border-[#CE1126] shadow-md ring-2 ring-[#CE1126]/15'
+                      ? 'bg-white border-[rgb(220,20,35)] shadow-md ring-2 ring-[rgb(220,20,35)]/15'
                       : 'bg-white/80 hover:bg-white border-neutral-200/80 hover:border-neutral-300 shadow-sm'
                   }`}
                 >
@@ -76,8 +76,8 @@ export const CommitmentsSection: React.FC<CommitmentsSectionProps> = ({ onOpenPr
                     <div
                       className={`w-11 h-11 rounded-xl flex items-center justify-center font-black text-sm shrink-0 transition-colors ${
                         isSelected
-                          ? 'bg-[#CE1126] text-white shadow'
-                          : 'bg-neutral-100 text-neutral-600 group-hover:bg-red-50 group-hover:text-[#CE1126]'
+                          ? 'bg-[rgb(220,20,35)] text-white shadow'
+                          : 'bg-neutral-100 text-neutral-600 group-hover:bg-red-50 group-hover:text-[rgb(220,20,35)]'
                       }`}
                     >
                       {c.number}
@@ -88,7 +88,7 @@ export const CommitmentsSection: React.FC<CommitmentsSectionProps> = ({ onOpenPr
                       </span>
                       <h4
                         className={`text-sm sm:text-base font-bold transition-colors ${
-                          isSelected ? 'text-[#CE1126]' : 'text-neutral-900 group-hover:text-[#CE1126]'
+                          isSelected ? 'text-[rgb(220,20,35)]' : 'text-neutral-900 group-hover:text-[rgb(220,20,35)]'
                         }`}
                       >
                         {c.title}
@@ -98,7 +98,7 @@ export const CommitmentsSection: React.FC<CommitmentsSectionProps> = ({ onOpenPr
 
                   <ChevronRight
                     className={`w-5 h-5 shrink-0 transition-transform ${
-                      isSelected ? 'text-[#CE1126] translate-x-1' : 'text-neutral-400 group-hover:text-neutral-700'
+                      isSelected ? 'text-[rgb(220,20,35)] translate-x-1' : 'text-neutral-400 group-hover:text-neutral-700'
                     }`}
                   />
                 </div>
@@ -113,11 +113,11 @@ export const CommitmentsSection: React.FC<CommitmentsSectionProps> = ({ onOpenPr
               {/* Header with Icon and Big Number */}
               <div className="flex items-start justify-between gap-4 border-b border-neutral-100 pb-6 mb-6">
                 <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-2xl bg-[#CE1126] flex items-center justify-center shadow-md shrink-0">
+                  <div className="w-14 h-14 rounded-2xl bg-[rgb(220,20,35)] flex items-center justify-center shadow-md shrink-0">
                     {getCommitmentIcon(selectedCommitment.iconName)}
                   </div>
                   <div>
-                    <span className="text-xs font-extrabold uppercase tracking-widest text-[#CE1126]">
+                    <span className="text-xs font-extrabold uppercase tracking-widest text-[rgb(220,20,35)]">
                       Compromiso Nº {selectedCommitment.number}
                     </span>
                     <h3 className="text-2xl sm:text-3xl font-black text-neutral-900 tracking-tight mt-0.5">
@@ -131,7 +131,7 @@ export const CommitmentsSection: React.FC<CommitmentsSectionProps> = ({ onOpenPr
               </div>
 
               {/* Lead Summary Callout */}
-              <div className="p-4 bg-red-50/80 rounded-2xl border border-red-100 text-[#A50B1B] font-semibold text-base mb-6 leading-relaxed">
+              <div className="p-4 bg-red-50/80 rounded-2xl border border-red-100 text-[rgb(180,15,25)] font-semibold text-base mb-6 leading-relaxed">
                 «{selectedCommitment.leadSummary}»
               </div>
 
@@ -171,7 +171,7 @@ export const CommitmentsSection: React.FC<CommitmentsSectionProps> = ({ onOpenPr
 
                 <button
                   onClick={onOpenProposalModal}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#CE1126] hover:bg-[#A50B1B] text-white text-xs sm:text-sm font-bold shadow transition-all active:scale-95"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[rgb(220,20,35)] hover:bg-[rgb(180,15,25)] text-white text-xs sm:text-sm font-bold shadow transition-all active:scale-95 cursor-pointer"
                 >
                   <Send className="w-4 h-4" />
                   <span>Aportar a este Eje</span>
@@ -183,25 +183,25 @@ export const CommitmentsSection: React.FC<CommitmentsSectionProps> = ({ onOpenPr
 
         </div>
 
-        {/* 20-Year Vision Quote Card from Slide 21 */}
+        {/* Vision Quote Card */}
         <div className="mt-14 bg-gradient-to-r from-neutral-900 to-red-950 text-white rounded-3xl p-8 sm:p-10 shadow-xl border border-neutral-800 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="max-w-3xl">
             <span className="text-xs uppercase tracking-widest text-amber-300 font-bold">
-              Visión Prospectiva Subregional
+              Visión Social Subregional
             </span>
             <h3 className="text-xl sm:text-2xl font-bold text-white mt-1">
-              «Nos comprometemos a transformar Apartadó en los próximos 20 años»
+              «Nos comprometemos a impulsar el progreso de Apartadó con hechos y constancia»
             </h3>
             <p className="text-xs sm:text-sm text-neutral-300 mt-2 leading-relaxed">
-              Gobernando con responsabilidad, transparencia y cercanía. Construyendo un proyecto regional 
-              que permita el desarrollo integral de la subregión de Urabá, con liderazgo y peso en los escenarios departamentales y nacionales.
+              Trabajando con vocación, transparencia y cercanía. Construyendo un proyecto comunitario 
+              que permita el desarrollo integral de la subregión de Urabá, articulando a líderes, familias e instituciones.
             </p>
           </div>
           <a
             href="#contacto"
             className="shrink-0 bg-white text-neutral-900 hover:bg-neutral-100 font-bold px-6 py-3 rounded-xl text-sm transition-colors shadow"
           >
-            Sumar a mi Organización
+            Vincular mi Organización
           </a>
         </div>
 

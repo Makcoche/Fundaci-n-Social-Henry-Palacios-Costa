@@ -1,6 +1,8 @@
 {
-  "name": "Fundación Social Henry Palacios Costa",
-  "description": "Sitio oficial de la Fundación Social Henry Palacios \"Costa\". Diciendo y Haciendo por Apartadó y la región de Urabá: deporte, cultura, educación, emprendimiento y desarrollo social.",
+  "name": "Fundación Social Comunitaria",
+  "description": "Sitio oficial de la Fundación Social Comunitaria. Diciendo y Haciendo por Apartadó y la subregión de Urabá: deporte formativo, cultura viva, educación, emprendimiento y desarrollo social.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }

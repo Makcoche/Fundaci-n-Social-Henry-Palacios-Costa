@@ -24,7 +24,7 @@ export const ContactSection: React.FC = () => {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-100 text-[#CE1126] text-xs font-bold uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-100 text-[rgb(220,20,35)] text-xs font-bold uppercase tracking-wider mb-3">
             <MessageCircle className="w-3.5 h-3.5" />
             <span>Puertas Abiertas para la Comunidad</span>
           </div>
@@ -39,7 +39,7 @@ export const ContactSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
           {/* Contact Details & Info Card */}
-          <div className="lg:col-span-5 bg-[#CE1126] text-white rounded-3xl p-8 sm:p-10 shadow-xl flex flex-col justify-between relative overflow-hidden">
+          <div className="lg:col-span-5 bg-[rgb(220,20,35)] text-white rounded-3xl p-8 sm:p-10 shadow-xl flex flex-col justify-between relative overflow-hidden">
             {/* Background accent */}
             <div className="absolute -right-16 -bottom-16 w-64 h-64 rounded-full bg-white/10 blur-2xl pointer-events-none"></div>
 
@@ -48,7 +48,7 @@ export const ContactSection: React.FC = () => {
                 Sede Central
               </span>
               <h3 className="text-2xl sm:text-3xl font-black mt-1 mb-6">
-                Fundación Social Henry Palacios “Costa”
+                Fundación Social Comunitaria
               </h3>
 
               <div className="space-y-5 text-sm">
@@ -144,7 +144,7 @@ export const ContactSection: React.FC = () => {
                       message: ''
                     });
                   }}
-                  className="px-6 py-2.5 bg-[#CE1126] text-white rounded-xl text-xs font-bold hover:bg-[#A50B1B]"
+                  className="px-6 py-2.5 bg-[rgb(220,20,35)] text-white rounded-xl text-xs font-bold hover:bg-[rgb(180,15,25)]"
                 >
                   Enviar otro mensaje
                 </button>
@@ -169,7 +169,7 @@ export const ContactSection: React.FC = () => {
                       placeholder="Ej. Dionisio Palacios"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-neutral-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#CE1126]"
+                      className="w-full px-4 py-3 rounded-xl border border-neutral-300 text-sm focus:outline-none focus:ring-2 focus:ring-[rgb(220,20,35)]"
                     />
                   </div>
 
@@ -184,7 +184,7 @@ export const ContactSection: React.FC = () => {
                         placeholder="Ej. 310 123 4567"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-neutral-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#CE1126]"
+                        className="w-full px-4 py-3 rounded-xl border border-neutral-300 text-sm focus:outline-none focus:ring-2 focus:ring-[rgb(220,20,35)]"
                       />
                     </div>
 
@@ -197,7 +197,7 @@ export const ContactSection: React.FC = () => {
                         placeholder="nombre@ejemplo.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-neutral-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#CE1126]"
+                        className="w-full px-4 py-3 rounded-xl border border-neutral-300 text-sm focus:outline-none focus:ring-2 focus:ring-[rgb(220,20,35)]"
                       />
                     </div>
                   </div>
@@ -209,7 +209,7 @@ export const ContactSection: React.FC = () => {
                     <select
                       value={formData.topic}
                       onChange={(e) => setFormData({ ...formData, topic: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-neutral-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#CE1126] bg-white"
+                      className="w-full px-4 py-3 rounded-xl border border-neutral-300 text-sm focus:outline-none focus:ring-2 focus:ring-[rgb(220,20,35)] bg-white"
                     >
                       <option value="Atención Comunitaria">Solicitud de Apoyo Comunitario</option>
                       <option value="Vinculación Deportiva">Escuelas Deportivas & Torneos</option>
@@ -230,13 +230,13 @@ export const ContactSection: React.FC = () => {
                       placeholder="Escribe aquí tu consulta o solicitud..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-neutral-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#CE1126] resize-none"
+                      className="w-full px-4 py-3 rounded-xl border border-neutral-300 text-sm focus:outline-none focus:ring-2 focus:ring-[rgb(220,20,35)] resize-none"
                     ></textarea>
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full py-3.5 px-6 rounded-xl bg-[#CE1126] hover:bg-[#A50B1B] text-white font-bold text-sm shadow-md transition-all active:scale-95 flex items-center justify-center gap-2"
+                    className="w-full py-3.5 px-6 rounded-xl bg-[rgb(220,20,35)] hover:bg-[rgb(180,15,25)] text-white font-bold text-sm shadow-md transition-all active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <Send className="w-4 h-4" />
                     <span>Enviar Mensaje a la Fundación</span>

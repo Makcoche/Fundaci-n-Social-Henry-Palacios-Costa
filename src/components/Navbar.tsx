@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Logo } from './Logo';
 import { FOUNDATION_INFO } from '../data/foundationData';
-import { Menu, X, Phone, HeartHandshake, MessageCircle, Send } from 'lucide-react';
+import { Menu, X, HeartHandshake, MessageCircle, Send } from 'lucide-react';
 
 interface NavbarProps {
+  currentPage: string;
+  onNavigate: (pageId: string) => void;
   onOpenProposalModal: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenProposalModal }) => {
+export const Navbar: React.FC<NavbarProps> = ({
+  currentPage,
+  onNavigate,
+  onOpenProposalModal
+}) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -20,102 +26,63 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenProposalModal }) => {
   }, []);
 
   const navLinks = [
-    { label: 'Inicio', href: '#inicio' },
-    { label: 'Quiénes Somos', href: '#quienes-somos' },
-    { label: 'Trayectoria', href: '#trayectoria' },
-    { label: '6 Compromisos', href: '#compromisos' },
-    { label: 'Programas', href: '#programas' },
-    { label: 'Buzón Ciudadano', href: '#buzon' },
-    { label: 'Contacto', href: '#contacto' }
+    { label: 'Inicio', id: 'inicio' },
+    { label: 'Quiénes Somos', id: 'quienes-somos' },
+    { label: 'Programas', id: 'programas' },
+    { label: 'Contacto', id: 'contacto' }
   ];
 
-  const handleLinkClick = (href: string) => {
+  const handleLinkClick = (id: string) => {
     setMobileMenuOpen(false);
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    onNavigate(id);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-      {/* Top utility bar with corporate slogan */}
-      <div className="bg-[#A50B1B] text-white text-xs font-medium py-1.5 px-4">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
-          <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 bg-white/15 px-2.5 py-0.5 rounded-full text-[11px] font-semibold tracking-wide">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              {FOUNDATION_INFO.slogan}
-            </span>
-            <span className="hidden sm:inline text-white/90">
-              {FOUNDATION_INFO.tagline} • Apartadó & Urabá
-            </span>
-          </div>
-
-          <div className="flex items-center gap-4 text-white/90">
-            <a
-              href={`tel:${FOUNDATION_INFO.phone.replace(/[^0-9+]/g, '')}`}
-              className="flex items-center gap-1 hover:text-white transition-colors"
-            >
-              <Phone className="w-3.5 h-3.5" />
-              <span className="hidden md:inline">{FOUNDATION_INFO.phone}</span>
-            </a>
-            <a
-              href={FOUNDATION_INFO.social.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1 text-emerald-300 hover:text-white transition-colors font-semibold"
-            >
-              <MessageCircle className="w-3.5 h-3.5" />
-              <span>WhatsApp Directo</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
       {/* Main Navigation Bar */}
       <nav
         className={`transition-all duration-300 ${
           scrolled
             ? 'bg-white/95 backdrop-blur-md shadow-md py-2.5 border-b border-neutral-200'
-            : 'bg-[#CE1126] text-white py-3.5 shadow-sm'
+            : 'bg-[rgb(220,20,35)] text-white py-3.5 shadow-sm'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Brand Logo */}
-          <a
-            href="#inicio"
-            onClick={(e) => {
-              e.preventDefault();
-              handleLinkClick('#inicio');
-            }}
-            className="cursor-pointer"
+          <button
+            onClick={() => handleLinkClick('inicio')}
+            className="cursor-pointer text-left bg-transparent border-0 p-0"
+            aria-label="Ir a Inicio"
           >
             <Logo
               variant={scrolled ? 'red' : 'white'}
               size="md"
             />
-          </a>
+          </button>
 
-          {/* Desktop Navigation Links */}
+          {/* Desktop Navigation Links (Max 4 items) */}
           <div className="hidden lg:flex items-center gap-1 xl:gap-2">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleLinkClick(link.href);
-                }}
-                className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
-                  scrolled
-                    ? 'text-neutral-700 hover:text-[#CE1126] hover:bg-red-50'
-                    : 'text-white/90 hover:text-white hover:bg-white/10'
-                }`}
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = currentPage === link.id;
+              return (
+                <button
+                  key={link.id}
+                  onClick={() => handleLinkClick(link.id)}
+                  className={`px-3.5 py-2 text-sm font-bold rounded-xl transition-all cursor-pointer ${
+                    isActive
+                      ? scrolled
+                        ? 'bg-[rgb(220,20,35)] text-white shadow-sm'
+                        : 'bg-white text-[rgb(220,20,35)] shadow-sm'
+                      : scrolled
+                      ? 'text-neutral-700 hover:text-[rgb(220,20,35)] hover:bg-red-50'
+                      : 'text-white/90 hover:text-white hover:bg-white/10'
+                  }`}
+                >
+                  {link.label}
+                </button>
+              );
+            })}
           </div>
 
           {/* Desktop Right Action Buttons */}
@@ -123,30 +90,27 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenProposalModal }) => {
             <button
               onClick={onOpenProposalModal}
               id="nav-propose-btn"
-              className={`flex items-center gap-2 px-4 py-2 text-sm font-bold rounded-xl transition-all shadow-sm active:scale-95 ${
+              className={`flex items-center gap-2 px-4 py-2 text-sm font-bold rounded-xl transition-all shadow-sm active:scale-95 cursor-pointer ${
                 scrolled
-                  ? 'bg-[#CE1126] text-white hover:bg-[#A50B1B]'
-                  : 'bg-white text-[#CE1126] hover:bg-neutral-100'
+                  ? 'bg-[rgb(220,20,35)] text-white hover:bg-[rgb(180,15,25)]'
+                  : 'bg-white text-[rgb(220,20,35)] hover:bg-neutral-100'
               }`}
             >
               <Send className="w-4 h-4" />
               <span>Proponer Idea</span>
             </button>
-            <a
-              href="#buzon"
-              onClick={(e) => {
-                e.preventDefault();
-                handleLinkClick('#buzon');
-              }}
-              className={`p-2 rounded-xl border transition-colors ${
+            <button
+              onClick={() => handleLinkClick('contacto')}
+              className={`p-2 rounded-xl border transition-colors cursor-pointer ${
                 scrolled
-                  ? 'border-neutral-200 text-neutral-700 hover:border-[#CE1126] hover:text-[#CE1126]'
+                  ? 'border-neutral-200 text-neutral-700 hover:border-[rgb(220,20,35)] hover:text-[rgb(220,20,35)]'
                   : 'border-white/30 text-white hover:bg-white/10'
               }`}
-              title="Súmate al voluntariado"
+              title="Voluntariado y Participación"
+              aria-label="Voluntariado"
             >
               <HeartHandshake className="w-5 h-5" />
-            </a>
+            </button>
           </div>
 
           {/* Mobile Menu Trigger */}
@@ -154,7 +118,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenProposalModal }) => {
             <button
               onClick={onOpenProposalModal}
               className={`p-2 rounded-lg text-xs font-bold flex items-center gap-1 ${
-                scrolled ? 'bg-[#CE1126] text-white' : 'bg-white text-[#CE1126]'
+                scrolled ? 'bg-[rgb(220,20,35)] text-white' : 'bg-white text-[rgb(220,20,35)]'
               }`}
             >
               <Send className="w-3.5 h-3.5" />
@@ -176,19 +140,23 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenProposalModal }) => {
         {mobileMenuOpen && (
           <div className="lg:hidden bg-white border-b border-neutral-200 shadow-xl px-4 pt-3 pb-6 mt-2 animate-in slide-in-from-top-2">
             <div className="flex flex-col space-y-1">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleLinkClick(link.href);
-                  }}
-                  className="px-3 py-2.5 text-base font-semibold text-neutral-800 hover:bg-red-50 hover:text-[#CE1126] rounded-lg transition-colors"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = currentPage === link.id;
+                return (
+                  <button
+                    key={link.id}
+                    onClick={() => handleLinkClick(link.id)}
+                    className={`px-3 py-2.5 text-base font-bold rounded-lg transition-colors text-left flex items-center justify-between ${
+                      isActive
+                        ? 'bg-red-50 text-[rgb(220,20,35)]'
+                        : 'text-neutral-800 hover:bg-neutral-100'
+                    }`}
+                  >
+                    <span>{link.label}</span>
+                    {isActive && <span className="w-2 h-2 rounded-full bg-[rgb(220,20,35)]"></span>}
+                  </button>
+                );
+              })}
             </div>
 
             <div className="mt-4 pt-4 border-t border-neutral-100 flex flex-col gap-2.5">
@@ -197,7 +165,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenProposalModal }) => {
                   setMobileMenuOpen(false);
                   onOpenProposalModal();
                 }}
-                className="w-full flex items-center justify-center gap-2 bg-[#CE1126] hover:bg-[#A50B1B] text-white font-bold py-3 px-4 rounded-xl shadow-sm text-sm"
+                className="w-full flex items-center justify-center gap-2 bg-[rgb(220,20,35)] hover:bg-[rgb(180,15,25)] text-white font-bold py-3 px-4 rounded-xl shadow-sm text-sm cursor-pointer"
               >
                 <Send className="w-4 h-4" />
                 <span>Registrar Propuesta Ciudadana</span>

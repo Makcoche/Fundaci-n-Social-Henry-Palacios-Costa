@@ -15,9 +15,9 @@ export const Logo: React.FC<LogoProps> = ({
 }) => {
   // Color configuration
   const isWhite = variant === 'white';
-  const primaryColor = isWhite ? '#FFFFFF' : '#CE1126';
+  const primaryColor = isWhite ? '#FFFFFF' : 'rgb(220, 20, 35)';
   const textColor = isWhite ? 'text-white' : 'text-neutral-900';
-  const scriptColor = isWhite ? 'text-white' : 'text-[#CE1126]';
+  const scriptColor = isWhite ? 'text-amber-200' : 'text-[rgb(220,20,35)]';
 
   // Dimension scaling
   const iconDimensions = {
@@ -28,18 +28,18 @@ export const Logo: React.FC<LogoProps> = ({
   }[size];
 
   const textSizes = {
-    sm: { sub: 'text-[9px]', main: 'text-xs', alias: 'text-sm' },
-    md: { sub: 'text-[11px]', main: 'text-sm sm:text-base', alias: 'text-base sm:text-lg' },
-    lg: { sub: 'text-xs sm:text-sm', main: 'text-lg sm:text-xl', alias: 'text-xl sm:text-2xl' },
-    xl: { sub: 'text-sm sm:text-base', main: 'text-2xl sm:text-3xl', alias: 'text-3xl sm:text-4xl' }
+    sm: { sub: 'text-[9px]', main: 'text-xs', detail: 'text-[9px]' },
+    md: { sub: 'text-[10px]', main: 'text-sm sm:text-base', detail: 'text-[11px]' },
+    lg: { sub: 'text-xs sm:text-sm', main: 'text-lg sm:text-xl', detail: 'text-xs sm:text-sm' },
+    xl: { sub: 'text-sm sm:text-base', main: 'text-2xl sm:text-3xl', detail: 'text-sm' }
   }[size];
 
   return (
     <div className={`flex items-center gap-3 select-none ${className}`}>
-      {/* SVG Icon Badge recreating the exact corporate heart + human figure + HP monogram */}
+      {/* SVG Icon Badge recreating the corporate heart + human silhouette monogram */}
       <div
         className={`relative flex items-center justify-center shrink-0 transition-transform hover:scale-105 duration-200 ${
-          variant === 'badge' ? 'p-2 bg-[#CE1126] rounded-2xl shadow-md' : ''
+          variant === 'badge' ? 'p-2 bg-[rgb(220,20,35)] rounded-2xl shadow-md' : ''
         }`}
       >
         <svg
@@ -48,10 +48,9 @@ export const Logo: React.FC<LogoProps> = ({
           viewBox="0 0 160 160"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          aria-label="Logo Fundación Social Henry Palacios Costa"
+          aria-label="Logo Fundación Social Apartadó"
           className="drop-shadow-sm"
         >
-          {/* Outer heart-shaped contour intertwined with human figure */}
           {/* Head of the human silhouette */}
           <circle cx="58" cy="38" r="14" fill={variant === 'badge' ? '#FFFFFF' : primaryColor} />
 
@@ -88,17 +87,17 @@ export const Logo: React.FC<LogoProps> = ({
         </svg>
       </div>
 
-      {/* Typography Label */}
+      {/* Institutional Typography Label */}
       {showSubtitle && (
         <div className="flex flex-col leading-tight">
-          <span className={`uppercase font-semibold tracking-wider ${textSizes.sub} opacity-90 ${textColor}`}>
-            Fundación Social
+          <span className={`uppercase font-bold tracking-wider ${textSizes.sub} opacity-90 ${textColor}`}>
+            Organización Comunitaria
           </span>
           <span className={`font-black tracking-tight ${textSizes.main} ${textColor}`}>
-            Henry Palacios
+            Fundación Social
           </span>
-          <span className={`font-script font-bold leading-none -mt-0.5 ${textSizes.alias} ${scriptColor}`}>
-            “Costa”
+          <span className={`font-bold tracking-widest uppercase ${textSizes.detail} ${scriptColor}`}>
+            Apartadó & Urabá
           </span>
         </div>
       )}

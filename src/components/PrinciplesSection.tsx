@@ -5,13 +5,13 @@ import { ShieldCheck, Award, Users, HeartHandshake, Scale, Compass, Zap, CheckCi
 export const PrinciplesSection: React.FC = () => {
   const getIcon = (iconName: string) => {
     switch (iconName) {
-      case 'ShieldCheck': return <ShieldCheck className="w-6 h-6 text-[#CE1126]" />;
-      case 'Award': return <Award className="w-6 h-6 text-[#CE1126]" />;
-      case 'Users': return <Users className="w-6 h-6 text-[#CE1126]" />;
-      case 'HeartHandshake': return <HeartHandshake className="w-6 h-6 text-[#CE1126]" />;
-      case 'Scale': return <Scale className="w-6 h-6 text-[#CE1126]" />;
-      case 'Compass': return <Compass className="w-6 h-6 text-[#CE1126]" />;
-      default: return <CheckCircle2 className="w-6 h-6 text-[#CE1126]" />;
+      case 'ShieldCheck': return <ShieldCheck className="w-6 h-6 text-[rgb(220,20,35)]" />;
+      case 'Award': return <Award className="w-6 h-6 text-[rgb(220,20,35)]" />;
+      case 'Users': return <Users className="w-6 h-6 text-[rgb(220,20,35)]" />;
+      case 'HeartHandshake': return <HeartHandshake className="w-6 h-6 text-[rgb(220,20,35)]" />;
+      case 'Scale': return <Scale className="w-6 h-6 text-[rgb(220,20,35)]" />;
+      case 'Compass': return <Compass className="w-6 h-6 text-[rgb(220,20,35)]" />;
+      default: return <CheckCircle2 className="w-6 h-6 text-[rgb(220,20,35)]" />;
     }
   };
 
@@ -23,7 +23,7 @@ export const PrinciplesSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Slogan Deep-dive Banner */}
-        <div className="bg-gradient-to-r from-[#B50E20] to-[#CE1126] rounded-3xl p-8 sm:p-12 shadow-2xl mb-20 border border-red-500/30">
+        <div className="bg-gradient-to-r from-[rgb(180,15,25)] to-[rgb(220,20,35)] rounded-3xl p-8 sm:p-12 shadow-2xl mb-20 border border-red-500/30">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 bg-black/25 backdrop-blur-md px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-amber-300 mb-4">
               <Zap className="w-3.5 h-3.5" />
@@ -61,11 +61,11 @@ export const PrinciplesSection: React.FC = () => {
             Convicciones Inquebrantables
           </span>
           <h3 className="text-3xl sm:text-4xl font-black text-white tracking-tight mt-2">
-            Nuestros 6 Principios de Servicio Público
+            Nuestros 6 Principios de Acción Social y Comunitaria
           </h3>
           <p className="mt-3 text-neutral-400 text-sm sm:text-base">
-            «Este proyecto no se construye sobre discursos, sino sobre convicciones. 
-            Cada decisión está guiada por principios que reflejan nuestra manera de entender el servicio público.»
+            «Nuestra labor comunitaria no se construye sobre promesas, sino sobre convicciones firmes. 
+            Cada proyecto está guiado por principios que reflejan nuestra vocación de servicio por Urabá.»
           </p>
         </div>
 
@@ -74,7 +74,7 @@ export const PrinciplesSection: React.FC = () => {
           {PRINCIPLES.map((principle) => (
             <div
               key={principle.id}
-              className="bg-neutral-800/80 hover:bg-neutral-800 rounded-2xl p-6 border border-neutral-700/60 transition-all hover:-translate-y-1 hover:border-[#CE1126] shadow-lg group"
+              className="bg-neutral-800/80 hover:bg-neutral-800 rounded-2xl p-6 border border-neutral-700/60 transition-all hover:-translate-y-1 hover:border-[rgb(220,20,35)] shadow-lg group"
             >
               <div className="w-12 h-12 rounded-xl bg-red-950/60 border border-red-500/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                 {getIcon(principle.iconName)}
@@ -92,22 +92,22 @@ export const PrinciplesSection: React.FC = () => {
         {/* Highlight quote banner */}
         <div className="mt-16 bg-neutral-950 border border-neutral-800 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-start gap-4">
-            <Quote className="w-10 h-10 text-[#CE1126] shrink-0 opacity-80" />
+            <Quote className="w-10 h-10 text-[rgb(220,20,35)] shrink-0 opacity-80" />
             <div>
               <p className="text-base sm:text-lg text-neutral-200 font-medium italic">
-                «Escuchar será el primer paso para gobernar. La transformación de Apartadó no depende únicamente de un alcalde; 
-                depende de una ciudadanía activa, comprometida y dispuesta a participar.»
+                «Escuchar y caminar el territorio es el corazón de nuestra labor. La transformación de Apartadó 
+                nace de una comunidad activa, unida y comprometida con el progreso de sus familias.»
               </p>
               <span className="text-xs text-amber-400 font-bold uppercase tracking-wider block mt-2">
-                — Henry Palacios “Costa”
+                — Fundación Social “Diciendo y Haciendo”
               </span>
             </div>
           </div>
           <a
             href="#buzon"
-            className="shrink-0 bg-[#CE1126] hover:bg-[#A50B1B] text-white px-5 py-3 rounded-xl font-bold text-sm transition-all shadow-md active:scale-95"
+            className="shrink-0 bg-[rgb(220,20,35)] hover:bg-[rgb(180,15,25)] text-white px-5 py-3 rounded-xl font-bold text-sm transition-all shadow-md active:scale-95 cursor-pointer"
           >
-            Participar en el Movimiento
+            Súmate al Voluntariado
           </a>
         </div>
 

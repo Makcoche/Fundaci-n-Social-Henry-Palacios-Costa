@@ -1,0 +1,327 @@
+import React from 'react';
+import { FOUNDATION_INFO } from '../data/foundationData';
+import { Logo } from './Logo';
+import { 
+  ArrowRight, 
+  CheckCircle2, 
+  Award, 
+  Users, 
+  ShieldCheck, 
+  Send, 
+  Heart, 
+  Target, 
+  Sparkles,
+  ChevronRight
+} from 'lucide-react';
+
+interface HomePageProps {
+  onNavigate: (pageId: string) => void;
+  onOpenProposalModal: () => void;
+}
+
+export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenProposalModal }) => {
+  return (
+    <div className="space-y-0">
+      {/* Hero Header */}
+      <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 bg-gradient-to-b from-[rgb(220,20,35)] via-[rgb(180,15,25)] to-[rgb(130,8,18)] text-white overflow-hidden">
+        {/* Subtle background effects */}
+        <div className="absolute inset-0 pointer-events-none opacity-10">
+          <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-white blur-3xl"></div>
+          <div className="absolute top-1/2 -left-48 w-80 h-80 rounded-full bg-white blur-3xl"></div>
+          <div
+            className="w-full h-full"
+            style={{
+              backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)',
+              backgroundSize: '32px 32px'
+            }}
+          ></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            
+            {/* Left Column */}
+            <div className="lg:col-span-7 flex flex-col space-y-6 text-left">
+              <div className="inline-flex items-center gap-2 self-start bg-white/15 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20 text-xs sm:text-sm font-semibold tracking-wide">
+                <CheckCircle2 className="w-4 h-4 text-amber-300" />
+                <span>{FOUNDATION_INFO.tagline}</span>
+                <span className="text-white/40">|</span>
+                <span className="text-amber-200 font-bold">Apartadó & Urabá</span>
+              </div>
+
+              <div>
+                <p className="text-amber-200 uppercase tracking-widest text-xs sm:text-sm font-bold mb-1">
+                  Lema Institucional y Filosofía de Trabajo
+                </p>
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-white leading-none">
+                  “Diciendo y Haciendo”
+                </h1>
+                <p className="mt-3 text-xl sm:text-2xl font-medium text-white/90">
+                  Transformando con hechos a <span className="font-extrabold underline decoration-amber-300 decoration-wavy decoration-1 underline-offset-4">Apartadó</span> y la Región de Urabá
+                </p>
+              </div>
+
+              <p className="text-base sm:text-lg text-white/85 leading-relaxed max-w-2xl font-normal">
+                Organización comunitaria y social sin ánimo de lucro. Creemos que la confianza se construye 
+                honrando la palabra y respondiendo con hechos tangibles a las necesidades de la infancia, las familias 
+                y el campo en nuestra región.
+              </p>
+
+              {/* Navigation CTAs to the dedicated subpages */}
+              <div className="flex flex-wrap items-center gap-3.5 pt-2">
+                <button
+                  onClick={() => onNavigate('quienes-somos')}
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white text-[rgb(220,20,35)] font-bold text-sm sm:text-base hover:bg-neutral-100 transition-all shadow-lg active:scale-95 cursor-pointer"
+                >
+                  <span>Conocer Quiénes Somos</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+
+                <button
+                  onClick={() => onNavigate('programas')}
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[rgb(130,8,18)] hover:bg-[rgb(105,6,15)] text-white font-semibold text-sm sm:text-base border border-white/20 transition-all shadow-md active:scale-95 cursor-pointer"
+                >
+                  <Sparkles className="w-4 h-4 text-amber-300" />
+                  <span>Ver Programas Sociales</span>
+                </button>
+              </div>
+
+              {/* Trust highlights */}
+              <div className="pt-4 border-t border-white/15 flex flex-wrap items-center gap-4 text-xs sm:text-sm text-white/80">
+                <div className="flex items-center gap-1.5">
+                  <ShieldCheck className="w-4 h-4 text-amber-300" />
+                  <span>Transparencia en cada proyecto</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <Users className="w-4 h-4 text-amber-300" />
+                  <span>Gestión participativa comunitaria</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <Award className="w-4 h-4 text-amber-300" />
+                  <span>15+ años de labor en Urabá</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column: Emblem Card */}
+            <div className="lg:col-span-5 flex justify-center">
+              <div className="w-full max-w-md bg-white/10 backdrop-blur-xl border border-white/25 rounded-3xl p-6 sm:p-8 shadow-2xl text-center relative">
+                <div className="absolute -top-3.5 right-6 bg-amber-400 text-neutral-900 font-extrabold text-xs uppercase px-3 py-1 rounded-full shadow-md">
+                  Organización Social
+                </div>
+
+                <div className="my-3 flex flex-col items-center justify-center">
+                  <div className="p-4 bg-white/10 rounded-2xl border border-white/20 shadow-inner inline-block mb-3">
+                    <Logo variant="white" size="xl" showSubtitle={false} />
+                  </div>
+                  <h2 className="text-xl sm:text-2xl font-black text-white uppercase tracking-tight">
+                    Fundación Social
+                  </h2>
+                  <span className="text-xs text-white/80 uppercase tracking-widest font-semibold mt-0.5">
+                    Apartadó & Subregión de Urabá
+                  </span>
+                  <p className="text-xs text-amber-200 mt-2 tracking-wider uppercase font-bold">
+                    «Diciendo y Haciendo»
+                  </p>
+                </div>
+
+                <div className="mt-4 bg-black/20 rounded-2xl p-4 border border-white/10 text-left">
+                  <p className="text-xs sm:text-sm text-white/90 italic leading-relaxed">
+                    «Para nosotros, "Diciendo y Haciendo" significa honrar la palabra, actuar con rapidez y convertir cada compromiso en obras visibles que dignifiquen la vida comunitaria.»
+                  </p>
+                </div>
+
+                <div className="mt-5 grid grid-cols-2 gap-2 text-xs">
+                  <button
+                    onClick={() => onNavigate('quienes-somos')}
+                    className="bg-white/15 hover:bg-white/25 text-white font-medium py-2.5 px-3 rounded-xl transition-colors text-center border border-white/10 cursor-pointer"
+                  >
+                    Nuestra Misión
+                  </button>
+                  <button
+                    onClick={() => onNavigate('contacto')}
+                    className="bg-amber-400 hover:bg-amber-300 text-neutral-900 font-bold py-2.5 px-3 rounded-xl transition-colors text-center shadow cursor-pointer"
+                  >
+                    Contáctanos
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Stats Strip */}
+          <div className="mt-14 pt-8 border-t border-white/20 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            {FOUNDATION_INFO.stats.map((stat, i) => (
+              <div key={i} className="flex flex-col items-center">
+                <span className="text-3xl sm:text-4xl font-black text-amber-300 tracking-tight">
+                  {stat.value}
+                </span>
+                <span className="text-xs sm:text-sm font-medium text-white/80 mt-1 max-w-[160px]">
+                  {stat.label}
+                </span>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* Overview Portal Section: 3 Clear Pillars pointing to the dedicated pages */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-100 text-[rgb(220,20,35)] text-xs font-bold uppercase tracking-wider mb-2">
+              <Target className="w-3.5 h-3.5" />
+              <span>Explora Nuestra Organización</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-neutral-900 tracking-tight">
+              Conoce Más de Nuestra Labor
+            </h2>
+            <p className="mt-3 text-neutral-600 text-sm sm:text-base">
+              Selecciona una sección para acceder a la información detallada de la Fundación Social:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            {/* Card 1: Quiénes Somos */}
+            <div className="bg-neutral-50 rounded-3xl p-8 border border-neutral-200/90 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow group">
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-red-100 text-[rgb(220,20,35)] flex items-center justify-center font-black text-xl mb-6 group-hover:scale-110 transition-transform">
+                  <Heart className="w-6 h-6 fill-[rgb(220,20,35)]" />
+                </div>
+                <h3 className="text-2xl font-bold text-neutral-900 mb-3">
+                  Quiénes Somos
+                </h3>
+                <p className="text-sm text-neutral-600 leading-relaxed mb-6">
+                  Descubre nuestra misión, visión institucional, principios rectores de transparencia y la trayectoria de hitos comunitarios construidos junto a las familias de Urabá.
+                </p>
+                <ul className="space-y-2 text-xs text-neutral-700 mb-6">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>Misión, Visión & Valores Institucionales</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>Línea histórica de impacto en el territorio</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>6 Principios de Acción Social</span>
+                  </li>
+                </ul>
+              </div>
+
+              <button
+                onClick={() => onNavigate('quienes-somos')}
+                className="w-full py-3 px-4 rounded-xl bg-white border border-neutral-200 text-[rgb(220,20,35)] font-bold text-sm flex items-center justify-center gap-2 hover:bg-red-50 hover:border-red-200 transition-colors cursor-pointer"
+              >
+                <span>Explorar Quiénes Somos</span>
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Card 2: Programas y Compromisos */}
+            <div className="bg-gradient-to-b from-red-50/70 to-white rounded-3xl p-8 border border-red-200 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow group">
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-[rgb(220,20,35)] text-white flex items-center justify-center font-black text-xl mb-6 group-hover:scale-110 transition-transform">
+                  <Sparkles className="w-6 h-6" />
+                </div>
+                <h3 className="text-2xl font-bold text-neutral-900 mb-3">
+                  Programas Sociales
+                </h3>
+                <p className="text-sm text-neutral-600 leading-relaxed mb-6">
+                  Conoce en detalle nuestras iniciativas activas: escuelas deportivas formativas, preservación de la cultura urabaense, talleres para madres emprendedoras y apoyo al campo.
+                </p>
+                <ul className="space-y-2 text-xs text-neutral-700 mb-6">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>Semilleros Deportivos formativos gratuitos</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>Urabá: Ritmo, Expresión y Tradición</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>Seis Ejes de Compromiso Social</span>
+                  </li>
+                </ul>
+              </div>
+
+              <button
+                onClick={() => onNavigate('programas')}
+                className="w-full py-3 px-4 rounded-xl bg-[rgb(220,20,35)] text-white font-bold text-sm flex items-center justify-center gap-2 hover:bg-[rgb(180,15,25)] transition-colors shadow-sm cursor-pointer"
+              >
+                <span>Ver Todos los Programas</span>
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Card 3: Contacto y Buzón Ciudadano */}
+            <div className="bg-neutral-50 rounded-3xl p-8 border border-neutral-200/90 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow group">
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center font-black text-xl mb-6 group-hover:scale-110 transition-transform">
+                  <Send className="w-6 h-6" />
+                </div>
+                <h3 className="text-2xl font-bold text-neutral-900 mb-3">
+                  Contacto & Participación
+                </h3>
+                <p className="text-sm text-neutral-600 leading-relaxed mb-6">
+                  Ubica nuestra sede física en Apartadó, canaliza tus propuestas para tu barrio o vereda, y únete a nuestro voluntariado comunitario.
+                </p>
+                <ul className="space-y-2 text-xs text-neutral-700 mb-6">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>Sede central en Apartadó, Antioquia</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>Buzón de propuestas comunitarias</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>Línea directa y atención por WhatsApp</span>
+                  </li>
+                </ul>
+              </div>
+
+              <button
+                onClick={() => onNavigate('contacto')}
+                className="w-full py-3 px-4 rounded-xl bg-white border border-neutral-200 text-neutral-800 font-bold text-sm flex items-center justify-center gap-2 hover:bg-neutral-100 transition-colors cursor-pointer"
+              >
+                <span>Ir a Contacto & Sedes</span>
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
+
+          </div>
+
+          {/* Quick Callout: Buzón Ciudadano */}
+          <div className="mt-14 rounded-3xl bg-neutral-900 text-white p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
+            <div className="space-y-2 text-center md:text-left">
+              <span className="text-xs uppercase tracking-widest text-amber-300 font-bold">
+                Tu Voz Cuenta en Urabá
+              </span>
+              <h3 className="text-xl sm:text-2xl font-black">
+                ¿Tienes una propuesta o necesidad para tu barrio o vereda?
+              </h3>
+              <p className="text-xs sm:text-sm text-neutral-400 max-w-2xl">
+                En la Fundación Social escuchamos las iniciativas de las comunidades y líderes vecinales para impulsarlas con hechos.
+              </p>
+            </div>
+            <button
+              onClick={onOpenProposalModal}
+              className="shrink-0 bg-[rgb(220,20,35)] hover:bg-[rgb(180,15,25)] text-white px-6 py-3.5 rounded-xl font-bold text-sm transition-all shadow flex items-center gap-2 cursor-pointer active:scale-95"
+            >
+              <Send className="w-4 h-4" />
+              <span>Registrar Mi Propuesta</span>
+            </button>
+          </div>
+
+        </div>
+      </section>
+    </div>
+  );
+};

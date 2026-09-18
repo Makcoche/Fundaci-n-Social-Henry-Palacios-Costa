@@ -11,12 +11,19 @@
   font-family: 'Caveat', cursive;
 }
 
-/* Custom brand colors and accents */
+/* Custom brand RGB red definition */
 :root {
-  --color-foundation-red: #CE1126;
-  --color-foundation-red-dark: #A50B1B;
-  --color-foundation-red-deep: #7D0613;
-  --color-foundation-red-light: #FEE2E2;
+  --color-foundation-red: rgb(220, 20, 35);
+  --color-foundation-red-dark: rgb(180, 15, 25);
+  --color-foundation-red-deep: rgb(130, 8, 18);
+  --color-foundation-red-light: rgb(254, 226, 226);
+}
+
+@theme {
+  --color-brand-red: rgb(220, 20, 35);
+  --color-brand-red-dark: rgb(180, 15, 25);
+  --color-brand-red-deep: rgb(130, 8, 18);
+  --color-brand-red-light: rgb(254, 226, 226);
 }
 
 /* Smooth custom scrollbars */
@@ -27,9 +34,9 @@
   background: #f1f1f1;
 }
 ::-webkit-scrollbar-thumb {
-  background: #ce1126;
+  background: rgb(220, 20, 35);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #a50b1b;
+  background: rgb(180, 15, 25);
 }

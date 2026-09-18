@@ -9,7 +9,7 @@ export const TestimonialsSection: React.FC = () => {
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-100 text-[#CE1126] text-xs font-bold uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-100 text-[rgb(220,20,35)] text-xs font-bold uppercase tracking-wider mb-3">
             <CheckCircle2 className="w-3.5 h-3.5" />
             <span>Credibilidad y Arraigo</span>
           </div>
@@ -17,8 +17,8 @@ export const TestimonialsSection: React.FC = () => {
             La Voz de Nuestra Comunidad
           </h2>
           <p className="mt-3 text-base sm:text-lg text-neutral-600 leading-relaxed">
-            Testimonios de quienes han vivido de primera mano el trabajo, la honestidad y los resultados 
-            de Henry Palacios "Costa" en Apartadó y el Urabá.
+            Testimonios de quienes han vivido de primera mano el trabajo, la cercanía y los resultados tangibles 
+            de los programas de la Fundación Social en Apartadó y Urabá.
           </p>
         </div>
 
@@ -27,7 +27,7 @@ export const TestimonialsSection: React.FC = () => {
           {TESTIMONIALS.map((item) => (
             <div
               key={item.id}
-              className="bg-neutral-50 rounded-3xl p-6 sm:p-8 border border-neutral-200 shadow-sm flex flex-col justify-between relative group hover:border-[#CE1126]/40 transition-colors"
+              className="bg-neutral-50 rounded-3xl p-6 sm:p-8 border border-neutral-200 shadow-sm flex flex-col justify-between relative group hover:border-[rgb(220,20,35)]/40 transition-colors"
             >
               <div>
                 <Quote className="w-8 h-8 text-red-300 mb-4" />
@@ -37,14 +37,14 @@ export const TestimonialsSection: React.FC = () => {
               </div>
 
               <div className="pt-4 border-t border-neutral-200/80 flex items-center gap-3">
-                <div className="w-11 h-11 rounded-full bg-[#CE1126] text-white flex items-center justify-center font-black text-sm shrink-0 shadow-xs">
+                <div className="w-11 h-11 rounded-full bg-[rgb(220,20,35)] text-white flex items-center justify-center font-black text-sm shrink-0 shadow-xs">
                   {item.avatarText}
                 </div>
                 <div>
                   <h4 className="font-bold text-neutral-900 text-sm">
                     {item.name}
                   </h4>
-                  <p className="text-xs text-[#CE1126] font-semibold">
+                  <p className="text-xs text-[rgb(220,20,35)] font-semibold">
                     {item.role}
                   </p>
                   <span className="text-[11px] text-neutral-500 flex items-center gap-1 mt-0.5">

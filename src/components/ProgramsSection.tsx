@@ -25,7 +25,7 @@ export const ProgramsSection: React.FC<ProgramsSectionProps> = ({ onOpenProposal
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-100 text-[#CE1126] text-xs font-bold uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-100 text-[rgb(220,20,35)] text-xs font-bold uppercase tracking-wider mb-3">
             <Users className="w-3.5 h-3.5" />
             <span>Acción Social en el Territorio</span>
           </div>
@@ -48,16 +48,16 @@ export const ProgramsSection: React.FC<ProgramsSectionProps> = ({ onOpenProposal
               <div>
                 {/* Header with Icon and Beneficiaries */}
                 <div className="flex items-start justify-between gap-4 mb-5">
-                  <div className="w-13 h-13 p-3.5 rounded-2xl bg-[#CE1126] shadow-md group-hover:scale-105 transition-transform shrink-0">
+                  <div className="w-13 h-13 p-3.5 rounded-2xl bg-[rgb(220,20,35)] shadow-md group-hover:scale-105 transition-transform shrink-0">
                     {getProgramIcon(prog.icon)}
                   </div>
                   <span className="inline-flex items-center gap-1.5 bg-white border border-neutral-200 text-neutral-700 text-xs font-bold px-3 py-1.5 rounded-full shadow-2xs">
-                    <span className="w-2 h-2 rounded-full bg-[#CE1126]"></span>
+                    <span className="w-2 h-2 rounded-full bg-[rgb(220,20,35)]"></span>
                     {prog.beneficiaries}
                   </span>
                 </div>
 
-                <span className="text-xs uppercase font-extrabold tracking-wider text-[#CE1126]">
+                <span className="text-xs uppercase font-extrabold tracking-wider text-[rgb(220,20,35)]">
                   {prog.subtitle}
                 </span>
                 <h3 className="text-xl sm:text-2xl font-black text-neutral-900 tracking-tight mt-1 mb-3">
@@ -90,7 +90,7 @@ export const ProgramsSection: React.FC<ProgramsSectionProps> = ({ onOpenProposal
                 </span>
                 <button
                   onClick={onOpenProposalModal}
-                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#CE1126] hover:text-[#A50B1B] transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[rgb(220,20,35)] hover:text-[rgb(180,15,25)] transition-colors cursor-pointer"
                 >
                   <span>Participar o Vincularse</span>
                   <ArrowRight className="w-4 h-4" />
@@ -100,26 +100,26 @@ export const ProgramsSection: React.FC<ProgramsSectionProps> = ({ onOpenProposal
           ))}
         </div>
 
-        {/* Banner: "Alcalde del Deporte, la Cultura y la Educación" */}
-        <div className="mt-14 rounded-3xl bg-gradient-to-r from-[#CE1126] to-[#8B0000] p-8 text-white shadow-xl flex flex-col lg:flex-row items-center justify-between gap-6">
+        {/* Banner: "El Deporte, la Cultura y la Educación Transforman Realidades" */}
+        <div className="mt-14 rounded-3xl bg-gradient-to-r from-[rgb(220,20,35)] to-[rgb(130,8,18)] p-8 text-white shadow-xl flex flex-col lg:flex-row items-center justify-between gap-6">
           <div className="space-y-2 text-center lg:text-left">
             <span className="text-xs font-black uppercase tracking-widest text-amber-300">
-              Legado Reconocido
+              Impacto Comunitario
             </span>
             <h3 className="text-2xl sm:text-3xl font-black">
-              «El Alcalde del Deporte, de la Cultura y de la Educación»
+              «El Deporte, la Cultura y la Educación Transforman Realidades»
             </h3>
             <p className="text-xs sm:text-sm text-white/85 max-w-2xl leading-relaxed">
-              En sus direcciones en el IMDER de Apartadó y Carepa, en el IMCCA y a lo largo de 10 años en Corbanacol, 
-              Henry demostró que el deporte y el arte salvan vidas y generan oportunidades para nuestra gente.
+              A través de escuelas deportivas barriales, grupos de danza folclórica y talleres formativos, 
+              la Fundación Social demuestra que el arte y el deporte salvan vidas, crean valores y abren caminos de progreso para Urabá.
             </p>
           </div>
-          <a
-            href="#trayectoria"
-            className="shrink-0 bg-white text-[#CE1126] font-bold px-6 py-3 rounded-xl hover:bg-neutral-100 transition-all shadow text-sm active:scale-95"
+          <button
+            onClick={onOpenProposalModal}
+            className="shrink-0 bg-white text-[rgb(220,20,35)] font-bold px-6 py-3 rounded-xl hover:bg-neutral-100 transition-all shadow text-sm active:scale-95 cursor-pointer"
           >
-            Conocer la Trayectoria
-          </a>
+            Conocer Hitos de Impacto
+          </button>
         </div>
 
       </div>

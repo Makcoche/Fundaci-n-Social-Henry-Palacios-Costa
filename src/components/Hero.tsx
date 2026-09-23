@@ -5,9 +5,10 @@ import { ArrowRight, CheckCircle2, Award, Users, ShieldCheck, Send, Heart } from
 
 interface HeroProps {
   onOpenProposalModal: () => void;
+  onOpenDonationModal?: () => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onOpenProposalModal }) => {
+export const Hero: React.FC<HeroProps> = ({ onOpenProposalModal, onOpenDonationModal }) => {
   return (
     <section id="inicio" className="relative pt-28 pb-16 md:pt-36 md:pb-24 bg-white text-neutral-900 border-b border-neutral-200 overflow-hidden">
       {/* Decorative background geometry and soft light accents */}
@@ -60,20 +61,30 @@ export const Hero: React.FC<HeroProps> = ({ onOpenProposalModal }) => {
 
             {/* Call to Actions */}
             <div className="flex flex-wrap items-center gap-3.5 pt-2">
+              {onOpenDonationModal && (
+                <button
+                  onClick={onOpenDonationModal}
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[rgb(220,20,35)] hover:bg-[rgb(180,15,25)] text-white font-black text-sm sm:text-base transition-all shadow-md hover:shadow-lg active:scale-95 cursor-pointer ring-2 ring-red-200"
+                >
+                  <Heart className="w-4 h-4 fill-white" />
+                  <span>Hacer una Donación</span>
+                </button>
+              )}
+
               <a
                 href="#compromisos"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[rgb(220,20,35)] hover:bg-[rgb(180,15,25)] text-white font-bold text-sm sm:text-base transition-all shadow-md hover:shadow-lg active:scale-95 cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-neutral-100 hover:bg-neutral-200 text-neutral-800 font-bold text-sm sm:text-base transition-all shadow-xs active:scale-95 cursor-pointer"
               >
-                <span>Conocer los 6 Ejes de Compromiso</span>
+                <span>Conocer los 6 Ejes</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
 
               <button
                 onClick={onOpenProposalModal}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-red-50 hover:bg-red-100 text-[rgb(220,20,35)] font-bold text-sm sm:text-base border border-red-200 transition-all shadow-xs active:scale-95 cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-red-50 hover:bg-red-100 text-[rgb(220,20,35)] font-bold text-sm sm:text-base border border-red-200 transition-all shadow-xs active:scale-95 cursor-pointer"
               >
                 <Send className="w-4 h-4 text-[rgb(220,20,35)]" />
-                <span>Proponer Idea para mi Barrio</span>
+                <span>Proponer Idea</span>
               </button>
             </div>
 

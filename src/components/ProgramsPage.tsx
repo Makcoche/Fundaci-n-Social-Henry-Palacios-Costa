@@ -2,14 +2,19 @@ import React from 'react';
 import { ProgramsSection } from './ProgramsSection';
 import { CommitmentsSection } from './CommitmentsSection';
 import { TestimonialsSection } from './TestimonialsSection';
-import { Sparkles, ArrowRight } from 'lucide-react';
+import { Sparkles, ArrowRight, Heart } from 'lucide-react';
 
 interface ProgramsPageProps {
   onOpenProposalModal: () => void;
+  onOpenDonationModal?: () => void;
   onNavigate: (pageId: string) => void;
 }
 
-export const ProgramsPage: React.FC<ProgramsPageProps> = ({ onOpenProposalModal, onNavigate }) => {
+export const ProgramsPage: React.FC<ProgramsPageProps> = ({ 
+  onOpenProposalModal, 
+  onOpenDonationModal,
+  onNavigate 
+}) => {
   return (
     <div className="pt-24 pb-16">
       {/* Page Header Banner */}
@@ -19,12 +24,25 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({ onOpenProposalModal,
             <Sparkles className="w-3.5 h-3.5" />
             <span>Acción Social con Resultados Comprobables</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-[rgb(220,20,35)]">
-            Nuestros Programas Sociales
-          </h1>
-          <p className="mt-3 text-base sm:text-lg text-neutral-600 max-w-3xl leading-relaxed">
-            Iniciativas de impacto directo en deporte formativo, cultura viva, capacitación de mujeres y mejoramiento veredal en Apartadó y Urabá.
-          </p>
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-[rgb(220,20,35)]">
+                Nuestros Programas Sociales
+              </h1>
+              <p className="mt-3 text-base sm:text-lg text-neutral-600 max-w-3xl leading-relaxed">
+                Iniciativas de impacto directo en deporte formativo, cultura viva, capacitación de mujeres y mejoramiento veredal en Apartadó y Urabá.
+              </p>
+            </div>
+            {onOpenDonationModal && (
+              <button
+                onClick={onOpenDonationModal}
+                className="self-start md:self-auto shrink-0 inline-flex items-center gap-2 bg-[rgb(220,20,35)] hover:bg-[rgb(180,15,25)] text-white px-5 py-3 rounded-xl font-bold text-sm shadow-md transition-all active:scale-95 cursor-pointer"
+              >
+                <Heart className="w-4 h-4 fill-white" />
+                <span>Donar a este Programa</span>
+              </button>
+            )}
+          </div>
         </div>
       </div>
 

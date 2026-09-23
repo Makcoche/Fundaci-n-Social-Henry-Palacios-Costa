@@ -2,14 +2,17 @@ import { Commitment, Principle, CareerMilestone, FoundationProgram, CitizenPropo
 
 export const FOUNDATION_INFO = {
   name: 'Fundación Social Comunitaria',
-  shortName: 'Fundación Social Comunitaria',
+  legalName: 'FUNDACIÓN SOCIAL HENRY PALACIOS VALENCIA',
+  nit: '900910900',
+  formattedNit: '900.910.900',
+  shortName: 'Fundación Social Henry Palacios',
   entityType: 'Organización Social y Comunitaria sin Ánimo de Lucro',
   slogan: 'Diciendo y Haciendo',
   tagline: 'Gestión Social con Resultados Comprobables',
   visionPhrase: 'Por el Desarrollo Integral de Apartadó y Urabá',
   subregion: 'Apartadó y Subregión de Urabá, Antioquia',
   headquarters: 'Calle 100 # 98-45, Centro Empresarial Urabá, Apartadó, Antioquia, Colombia',
-  phone: '+57 (311) 456-7890',
+  phone: '+57 310 704 3923',
   email: 'contacto@fundacionsocialuraba.org',
   website: 'www.fundacionsocialuraba.org',
   workingHours: 'Lunes a Viernes: 8:00 AM - 5:30 PM | Sábados: 8:00 AM - 1:00 PM',
@@ -17,13 +20,34 @@ export const FOUNDATION_INFO = {
     facebook: 'https://facebook.com',
     instagram: 'https://instagram.com',
     twitter: 'https://x.com',
-    whatsapp: 'https://wa.me/573114567890?text=Hola,%20deseo%20conocer%20m%C3%A1s%20sobre%20los%20programas%20de%20la%20Fundaci%C3%B3n%20Social'
+    whatsapp: 'https://wa.me/573107043923?text=Hola,%20deseo%20apoyar%20a%20la%20Fundaci%C3%B3n%20Social%20Henry%20Palacios%20Valencia%20con%20una%20donaci%C3%B3n'
   },
   stats: [
     { label: 'Años de Labor Comunitaria', value: '15+' },
     { label: 'Niños & Jóvenes en Escuelas', value: '25.000+' },
     { label: 'Jornadas & Eventos Comunitarios', value: '180+' },
     { label: 'Barrios & Veredas con Presencia', value: '60+' }
+  ]
+};
+
+export const BANKING_INFO = {
+  bank: 'Bancolombia S.A.',
+  accountHolder: 'FUNDACIÓN SOCIAL HENRY PALACIOS VALENCIA',
+  nit: '900910900',
+  formattedNit: '900.910.900',
+  accountType: 'Cuenta de Ahorros',
+  accountNumber: '549-513616-42',
+  cleanAccountNumber: '54951361642',
+  status: 'ACTIVA',
+  openingDate: '2015/11/24',
+  certificateDate: 'Septiembre 02 de 2026',
+  city: 'Apartadó, Antioquia, Colombia',
+  verificationUrl: 'www.bancolombia.com.co',
+  causes: [
+    { title: 'Semilleros Deportivos y Balones', amount: '$25.000 COP', desc: 'Dotación de implementación deportiva para niños de barrios vulnerables.' },
+    { title: 'Kit Pedagógico y Escolar', amount: '$50.000 COP', desc: 'Útiles y refuerzo escolar para menores en veredas de Apartadó.' },
+    { title: 'Talleres para Madres Comunitarias', amount: '$100.000 COP', desc: 'Capacitación en oficios y emprendimiento para mujeres cabeza de hogar.' },
+    { title: 'Jornadas de Mejoramiento Comunitario', amount: '$250.000 COP', desc: 'Pintura comunitaria, adecuación de canchas y espacios recreativos.' }
   ]
 };
 

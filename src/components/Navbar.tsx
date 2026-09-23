@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { Logo } from './Logo';
 import { FOUNDATION_INFO } from '../data/foundationData';
-import { Menu, X, HeartHandshake, MessageCircle, Send } from 'lucide-react';
+import { Menu, X, HeartHandshake, MessageCircle, Send, Heart } from 'lucide-react';
 
 interface NavbarProps {
   currentPage: string;
   onNavigate: (pageId: string) => void;
   onOpenProposalModal: () => void;
+  onOpenDonationModal: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
   currentPage,
   onNavigate,
-  onOpenProposalModal
+  onOpenProposalModal,
+  onOpenDonationModal
 }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -86,19 +88,35 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
 
           {/* Desktop Right Action Buttons */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden md:flex items-center gap-2.5">
+            {/* Donation Button */}
+            <button
+              onClick={onOpenDonationModal}
+              id="nav-donate-btn"
+              className={`flex items-center gap-2 px-4 py-2 text-sm font-black rounded-xl transition-all shadow-sm active:scale-95 cursor-pointer ${
+                scrolled
+                  ? 'bg-[rgb(220,20,35)] text-white hover:bg-[rgb(180,15,25)] ring-2 ring-red-200'
+                  : 'bg-white text-[rgb(220,20,35)] hover:bg-neutral-100 ring-2 ring-white/50'
+              }`}
+              title="Donar a la Fundación Social Henry Palacios Valencia"
+            >
+              <Heart className="w-4 h-4 fill-current" />
+              <span>Donar</span>
+            </button>
+
             <button
               onClick={onOpenProposalModal}
               id="nav-propose-btn"
-              className={`flex items-center gap-2 px-4 py-2 text-sm font-bold rounded-xl transition-all shadow-sm active:scale-95 cursor-pointer ${
+              className={`flex items-center gap-2 px-3.5 py-2 text-sm font-bold rounded-xl transition-all shadow-xs active:scale-95 cursor-pointer ${
                 scrolled
-                  ? 'bg-[rgb(220,20,35)] text-white hover:bg-[rgb(180,15,25)]'
-                  : 'bg-white text-[rgb(220,20,35)] hover:bg-neutral-100'
+                  ? 'bg-neutral-100 text-neutral-800 hover:bg-neutral-200'
+                  : 'bg-black/20 text-white hover:bg-black/30 border border-white/20'
               }`}
             >
-              <Send className="w-4 h-4" />
+              <Send className="w-3.5 h-3.5" />
               <span>Proponer Idea</span>
             </button>
+
             <button
               onClick={() => handleLinkClick('contacto')}
               className={`p-2 rounded-xl border transition-colors cursor-pointer ${
@@ -114,19 +132,22 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
 
           {/* Mobile Menu Trigger */}
-          <div className="flex lg:hidden items-center gap-2">
+          <div className="flex lg:hidden items-center gap-1.5">
             <button
-              onClick={onOpenProposalModal}
-              className={`p-2 rounded-lg text-xs font-bold flex items-center gap-1 ${
-                scrolled ? 'bg-[rgb(220,20,35)] text-white' : 'bg-white text-[rgb(220,20,35)]'
+              onClick={onOpenDonationModal}
+              className={`px-3 py-1.5 rounded-lg text-xs font-black flex items-center gap-1.5 shadow-xs cursor-pointer ${
+                scrolled
+                  ? 'bg-[rgb(220,20,35)] text-white'
+                  : 'bg-white text-[rgb(220,20,35)]'
               }`}
             >
-              <Send className="w-3.5 h-3.5" />
-              <span className="hidden xs:inline">Proponer</span>
+              <Heart className="w-3.5 h-3.5 fill-current" />
+              <span>Donar</span>
             </button>
+
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`p-2 rounded-lg transition-colors ${
+              className={`p-2 rounded-lg transition-colors cursor-pointer ${
                 scrolled ? 'text-neutral-800 hover:bg-neutral-100' : 'text-white hover:bg-white/10'
               }`}
               aria-label="Abrir menú"
@@ -163,9 +184,19 @@ export const Navbar: React.FC<NavbarProps> = ({
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
+                  onOpenDonationModal();
+                }}
+                className="w-full flex items-center justify-center gap-2 bg-[rgb(220,20,35)] hover:bg-[rgb(180,15,25)] text-white font-black py-3 px-4 rounded-xl shadow-md text-sm cursor-pointer"
+              >
+                <Heart className="w-4 h-4 fill-white" />
+                <span>Hacer Donación (Bancolombia)</span>
+              </button>
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
                   onOpenProposalModal();
                 }}
-                className="w-full flex items-center justify-center gap-2 bg-[rgb(220,20,35)] hover:bg-[rgb(180,15,25)] text-white font-bold py-3 px-4 rounded-xl shadow-sm text-sm cursor-pointer"
+                className="w-full flex items-center justify-center gap-2 bg-neutral-100 hover:bg-neutral-200 text-neutral-800 font-bold py-2.5 px-4 rounded-xl text-sm cursor-pointer"
               >
                 <Send className="w-4 h-4" />
                 <span>Registrar Propuesta Ciudadana</span>

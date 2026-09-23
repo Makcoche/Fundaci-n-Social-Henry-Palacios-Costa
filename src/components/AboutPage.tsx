@@ -6,9 +6,10 @@ import { Heart, ArrowRight } from 'lucide-react';
 
 interface AboutPageProps {
   onNavigate: (pageId: string) => void;
+  onOpenDonationModal?: () => void;
 }
 
-export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
+export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenDonationModal }) => {
   return (
     <div className="pt-24 pb-16">
       {/* Breadcrumb / Page Header Banner */}
@@ -18,13 +19,26 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
             <Heart className="w-3.5 h-3.5 fill-[rgb(220,20,35)] text-[rgb(220,20,35)]" />
             <span>Nuestra Identidad & Principios</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-[rgb(220,20,35)]">
-            Quiénes Somos
-          </h1>
-          <p className="mt-3 text-base sm:text-lg text-neutral-600 max-w-3xl leading-relaxed">
-            Conoce la historia, misión, visión y principios rectores de la <strong>Fundación Social Comunitaria</strong>. 
-            Quince años de compromiso continuo construyendo oportunidades en Apartadó y la subregión de Urabá.
-          </p>
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-[rgb(220,20,35)]">
+                Quiénes Somos
+              </h1>
+              <p className="mt-3 text-base sm:text-lg text-neutral-600 max-w-3xl leading-relaxed">
+                Conoce la historia, misión, visión y principios rectores de la <strong>Fundación Social Comunitaria</strong>. 
+                Quince años de compromiso continuo construyendo oportunidades en Apartadó y la subregión de Urabá.
+              </p>
+            </div>
+            {onOpenDonationModal && (
+              <button
+                onClick={onOpenDonationModal}
+                className="self-start md:self-auto shrink-0 inline-flex items-center gap-2 bg-[rgb(220,20,35)] hover:bg-[rgb(180,15,25)] text-white px-5 py-3 rounded-xl font-bold text-sm shadow-md transition-all active:scale-95 cursor-pointer"
+              >
+                <Heart className="w-4 h-4 fill-white" />
+                <span>Apoyar con Donación</span>
+              </button>
+            )}
+          </div>
         </div>
       </div>
 

@@ -1,13 +1,14 @@
 import React from 'react';
 import { Logo } from './Logo';
-import { FOUNDATION_INFO } from '../data/foundationData';
-import { MapPin, Phone, Mail, MessageCircle, Heart, ArrowUp, ChevronRight } from 'lucide-react';
+import { FOUNDATION_INFO, BANKING_INFO } from '../data/foundationData';
+import { MapPin, Phone, Mail, MessageCircle, Heart, ArrowUp, ChevronRight, Building2, ShieldCheck } from 'lucide-react';
 
 interface FooterProps {
   onNavigate?: (pageId: string) => void;
+  onOpenDonationModal?: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
+export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenDonationModal }) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -125,12 +126,44 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </ul>
           </div>
 
-          {/* Col 3: Territory & Core Areas */}
-          <div className="lg:col-span-4 space-y-3">
-            <h4 className="text-xs font-black uppercase tracking-widest text-amber-300">
-              Territorio & Compromiso
-            </h4>
-            <div className="space-y-2 text-xs text-neutral-400">
+          {/* Col 3: Territory & Banking Info */}
+          <div className="lg:col-span-4 space-y-4">
+            <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-4 space-y-2.5">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-1.5 text-xs font-bold text-white">
+                  <Building2 className="w-4 h-4 text-[rgb(220,20,35)]" />
+                  <span>{BANKING_INFO.bank}</span>
+                </div>
+                <span className="text-[10px] font-extrabold uppercase bg-emerald-950 text-emerald-400 border border-emerald-800 px-2 py-0.5 rounded-full">
+                  Certificada
+                </span>
+              </div>
+              <div className="text-xs">
+                <span className="text-neutral-400 text-[11px] block">{BANKING_INFO.accountType}:</span>
+                <span className="text-amber-300 font-mono font-bold text-sm tracking-wide">
+                  {BANKING_INFO.accountNumber}
+                </span>
+              </div>
+              <div className="text-[11px] text-neutral-400">
+                <span>Titular: </span>
+                <strong className="text-neutral-200">{BANKING_INFO.accountHolder}</strong>
+                <br />
+                <span>NIT: </span>
+                <span className="text-neutral-300 font-mono">{BANKING_INFO.formattedNit}</span>
+              </div>
+              {onOpenDonationModal && (
+                <button
+                  type="button"
+                  onClick={onOpenDonationModal}
+                  className="w-full mt-2 flex items-center justify-center gap-1.5 bg-[rgb(220,20,35)] hover:bg-[rgb(180,15,25)] text-white font-bold py-2 px-3 rounded-xl text-xs transition-colors cursor-pointer"
+                >
+                  <Heart className="w-3.5 h-3.5 fill-white" />
+                  <span>Hacer una Donación</span>
+                </button>
+              )}
+            </div>
+
+            <div className="space-y-2 text-xs text-neutral-400 pt-1">
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
                 <span>{FOUNDATION_INFO.headquarters}</span>
@@ -139,15 +172,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 <Mail className="w-4 h-4 text-red-500 shrink-0" />
                 <span>{FOUNDATION_INFO.email}</span>
               </div>
-            </div>
-
-            <div className="pt-3 border-t border-neutral-800">
-              <span className="text-[11px] font-bold text-neutral-400 uppercase tracking-wider block mb-1">
-                Ejes de Transformación:
-              </span>
-              <p className="text-[11px] text-neutral-500 leading-normal">
-                Transparencia Comunitaria • Seguridad y Entornos Protectores • Educación y Becas • Deporte Formativo • Salud Preventiva • Emprendimiento e Inclusión
-              </p>
             </div>
           </div>
 

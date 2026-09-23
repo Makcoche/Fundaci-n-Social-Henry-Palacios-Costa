@@ -1,6 +1,7 @@
 import React from 'react';
-import { FOUNDATION_INFO } from '../data/foundationData';
+import { FOUNDATION_INFO, BANKING_INFO } from '../data/foundationData';
 import { Logo } from './Logo';
+import { DonationSection } from './DonationSection';
 import { 
   ArrowRight, 
   CheckCircle2, 
@@ -10,16 +11,23 @@ import {
   Send, 
   Heart, 
   Target, 
-  Sparkles,
-  ChevronRight
+  Sparkles, 
+  ChevronRight,
+  Building2,
+  Copy
 } from 'lucide-react';
 
 interface HomePageProps {
   onNavigate: (pageId: string) => void;
   onOpenProposalModal: () => void;
+  onOpenDonationModal: () => void;
 }
 
-export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenProposalModal }) => {
+export const HomePage: React.FC<HomePageProps> = ({ 
+  onNavigate, 
+  onOpenProposalModal,
+  onOpenDonationModal
+}) => {
   return (
     <div className="space-y-0">
       {/* Hero Header */}
@@ -70,19 +78,27 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenProposalMo
               {/* Navigation CTAs to the dedicated subpages */}
               <div className="flex flex-wrap items-center gap-3.5 pt-2">
                 <button
-                  onClick={() => onNavigate('quienes-somos')}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[rgb(220,20,35)] hover:bg-[rgb(180,15,25)] text-white font-bold text-sm sm:text-base transition-all shadow-md hover:shadow-lg active:scale-95 cursor-pointer"
+                  onClick={onOpenDonationModal}
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[rgb(220,20,35)] hover:bg-[rgb(180,15,25)] text-white font-black text-sm sm:text-base transition-all shadow-md hover:shadow-lg active:scale-95 cursor-pointer ring-2 ring-red-100"
                 >
-                  <span>Conocer Quiénes Somos</span>
+                  <Heart className="w-4 h-4 fill-white" />
+                  <span>Hacer una Donación</span>
+                </button>
+
+                <button
+                  onClick={() => onNavigate('quienes-somos')}
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-neutral-100 hover:bg-neutral-200 text-neutral-800 font-bold text-sm sm:text-base transition-all shadow-xs active:scale-95 cursor-pointer"
+                >
+                  <span>Quiénes Somos</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
 
                 <button
                   onClick={() => onNavigate('programas')}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-red-50 hover:bg-red-100 text-[rgb(220,20,35)] border border-red-200 font-bold text-sm sm:text-base transition-all shadow-xs active:scale-95 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-red-50 hover:bg-red-100 text-[rgb(220,20,35)] border border-red-200 font-bold text-sm sm:text-base transition-all shadow-xs active:scale-95 cursor-pointer"
                 >
                   <Sparkles className="w-4 h-4 text-[rgb(220,20,35)]" />
-                  <span>Ver Programas Sociales</span>
+                  <span>Programas</span>
                 </button>
               </div>
 
@@ -140,11 +156,20 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenProposalMo
                   </button>
                   <button
                     onClick={() => onNavigate('contacto')}
-                    className="bg-[rgb(220,20,35)] hover:bg-[rgb(180,15,25)] text-white font-bold py-2.5 px-3 rounded-xl transition-colors text-center shadow cursor-pointer"
+                    className="bg-neutral-100 hover:bg-neutral-200 text-neutral-800 font-semibold py-2.5 px-3 rounded-xl transition-colors text-center border border-neutral-200 cursor-pointer"
                   >
-                    Contáctanos
+                    Contacto & Sede
                   </button>
                 </div>
+
+                <button
+                  type="button"
+                  onClick={onOpenDonationModal}
+                  className="mt-2.5 w-full bg-red-50 hover:bg-red-100 text-[rgb(220,20,35)] border border-red-200 font-bold py-2.5 px-3 rounded-xl transition-colors text-center text-xs flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <Heart className="w-3.5 h-3.5 fill-[rgb(220,20,35)]" />
+                  <span>Donar a Cuenta Bancolombia Oficial</span>
+                </button>
               </div>
             </div>
 
@@ -322,6 +347,9 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenProposalMo
 
         </div>
       </section>
+
+      {/* Official Certified Donation Section */}
+      <DonationSection onOpenDonationModal={onOpenDonationModal} />
     </div>
   );
 };

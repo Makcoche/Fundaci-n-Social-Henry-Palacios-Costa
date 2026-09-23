@@ -13,16 +13,16 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({ onOpenProposalModal,
   return (
     <div className="pt-24 pb-16">
       {/* Page Header Banner */}
-      <div className="bg-gradient-to-r from-[rgb(220,20,35)] via-[rgb(180,15,25)] to-[rgb(130,8,18)] text-white py-12 border-b border-[rgb(130,8,18)]">
+      <div className="bg-white text-neutral-900 py-12 border-b border-neutral-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 border border-white/20 text-amber-200 text-xs font-bold uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 border border-red-200 text-[rgb(220,20,35)] text-xs font-bold uppercase tracking-wider mb-3">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Acción Social con Resultados Comprobables</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white">
+          <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-[rgb(220,20,35)]">
             Nuestros Programas Sociales
           </h1>
-          <p className="mt-3 text-base sm:text-lg text-white/90 max-w-3xl leading-relaxed">
+          <p className="mt-3 text-base sm:text-lg text-neutral-600 max-w-3xl leading-relaxed">
             Iniciativas de impacto directo en deporte formativo, cultura viva, capacitación de mujeres y mejoramiento veredal en Apartadó y Urabá.
           </p>
         </div>
